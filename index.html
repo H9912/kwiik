@@ -33,6 +33,7 @@
     <div class="menu">
         <button class="wiki" id="wiki" onclick="Game.openWiki()">Wiki</button>
         <button class="settings" id="settings" onclick="Game.openSettings()">Settings</button>
+        <button class="achievements" id="achievements" onclick="Game.openAchievements()">Achievements</button>
     </div>
     <div class="kwiik">
         <div class="heading">
@@ -84,9 +85,14 @@
     <div class="overlaySettings" id="overlaySettings">
         <button class="closeWiki" onclick="Game.closeSettings()">CLOSE</button>
         <div>
-            <h1>kwiik 0.4 - Settings</h1>
+            <h1>Settings</h1>
         </div>
         <button class="buttonreset" id=resetKiwisButton onclick="Game.resetSave()">reset save</button>
+    </div>
+    <div class="overlayAchievements" id="overlayAchievements">
+        <div>
+            <h1>Achievements</h1>
+        </div>
     </div>
     <div class="counter" id="pressCounter">
         <h3 id="pressCounterText">{} presses</h3>

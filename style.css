@@ -182,6 +182,26 @@ body {
         transform: scale(1.05, 1.05);
     }
 }
+
+/*FADING*/
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 /*GOLDEN BUTTON CSS PROPERTIES*/
 #goldenKiwi {
     display: flex;
@@ -284,6 +304,20 @@ body {
     color:  rgb(146, 21, 129);
     animation: bounce2 1s infinite alternate;
 }
+.gamblewaiting {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: #c74c9a;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/*TOP-RIGHT MENUS*/
 
 .menu {
     right: 0;
@@ -363,33 +397,33 @@ body {
 .more-wiki {
     color: #0051ad;
 }
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
 
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
+/*ACHIEVEMENTS*/
 
-    100% {
-        opacity: 0;
-    }
+.achievements {
+    font-family: "Roboto Slab";
+    text-align: center;
+    font-size: 100%;
+    padding: 1.5em;
+    border: #174072 solid 5px;
+    transition: 0.3s;
+    color: #174072;
+    box-sizing: border-box;
+    margin-right: 1%;
 }
-.gamblewaiting {
+
+.overlayAchievements {
+    transition: 0.5s;
+    color: white;
+    font-family: "Roboto Slab";
+    font-size: 2vh;
+    border: none;
     display: none;
     width: 100%;
     height: 100%;
     position: absolute;
-    justify-content: center;
-    align-items: center;
-    background: #c74c9a;
     top: 0;
     left: 0;
     z-index: 2;
+    background: mediumslateblue;
 }
