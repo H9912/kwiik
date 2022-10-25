@@ -14,6 +14,7 @@ upcoming 0.4 : achievements, press types, new ui, new background, json saving sy
 $body = $("body");
 
 let Game={};
+let Achievements={};
 
 // define variables
 const formatter = Intl.NumberFormat('en', {
@@ -21,6 +22,7 @@ const formatter = Intl.NumberFormat('en', {
     maximumSignificantDigits: 3
 });
 
+Game.save = {};
 Game.saveMade = false;
 Game.kiwis = 0;
 Game.defaultKiwiMakeCount = 1;
@@ -177,6 +179,7 @@ Game.pressRun = function() {
             // add press to html doc
             document.getElementById('pressDiv').appendChild(press);
             Game.kiwiMakeCount = Game.defaultKiwiMakeCount + Game.pressCount;
+            Game.kiwiEachClick = 3;
             document.getElementById("makeKiwiButton").innerHTML = `make kiwi (${Game.kiwiMakeCount})`;
         }
         if (Game.Rdn === 1) {
@@ -320,7 +323,6 @@ Game.goldenKiwi = function() {
 
 }
 
-
 Game.openWiki = function() {
     document.getElementById("overlayWiki").style.display = "flex";
     document.getElementById("overlayWiki").style.animation = "fadeIn 0.5s";
@@ -343,6 +345,29 @@ Game.closeSettings = function() {
         document.getElementById("overlaySettings").style.display = "none";
     }, 500);
 }
+
+Game.openAchievements = function() {
+    document.getElementById("overlayAchievements").style.display = "flex";
+    document.getElementById("overlayAchievements").style.animation = "fadeIn 0.5s";
+}
+Achievements.kiwiGoal10k = false;
+Achievements.kiwiGoal100k = false;
+Achievements.kiwiGoal1m = false;
+
+setInterval( function() {
+    if (Game.kiwis >= 10000) {
+        Achievements.kiwiGoal10k = true;
+        Game.KiwiAchievement = Game.kiwis += 2000;
+        document.createElement("");
+    }
+    if (Game.kiwis >= 100000) {
+        Achievements.kiwiGoal100k = true;
+    }
+    if (Game.kiwis >= 1000000) {
+        Achievements.kiwiGoal1m = true;
+    }
+});
+
 
 // reset kiwi function
 Game.resetSave = function(){
@@ -423,6 +448,22 @@ window.onbeforeunload = () => {
     Game.saveMade = true;
     let d = Date.now();
     Game.quitDate = Game.reductDateToSeconds(d);
+
+    Game.save = {
+        "saveMade": Game.saveMade,
+        "kiwis": Game.kiwis,
+        "kiwiMakeCount": Game.kiwiMakeCount,
+        "pressCount": Game.pressCount,
+        "pressPrice": Game.pressPrice,
+        "extractorCount": Game.extractorCount,
+        "extractorMakeCount": Game.extractorMakeCount,
+        "extractorPrice": Game.extractorPrice,
+        "gambleAvailable": Game.gambleAvailable,
+        "quitDate": Game.quitDate,
+        "goldenKiwiCounter": Game.goldenKiwiCounter
+    }
+
+    localStorage.setItem("save", JSON.stringify(Game.save));
     console.log(Game.quitDate);
     Game.lds.set("saveMade", Game.saveMade);
     Game.lds.set("kiwis", Game.kiwis);
