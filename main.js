@@ -329,10 +329,7 @@ Game.openWiki = function() {
 }
 
 Game.closeWiki = function() {
-    document.getElementById("overlayWiki").style.animation = "fadeOut 0.5s";
-    setTimeout(function() {
-        document.getElementById("overlayWiki").style.display = "none";
-    }, 500);
+    document.getElementById("overlayWiki").style.display = "none";
 }
 
 Game.openSettings = function() {
@@ -340,16 +337,18 @@ Game.openSettings = function() {
     document.getElementById("overlaySettings").style.animation = "fadeIn 0.5s";
 }
 Game.closeSettings = function() {
-    document.getElementById("overlaySettings").style.animation = "fadeOut 0.5s";
-    setTimeout(function() {
-        document.getElementById("overlaySettings").style.display = "none";
-    }, 500);
+    document.getElementById("overlaySettings").style.display = "none";
 }
 
 Game.openAchievements = function() {
     document.getElementById("overlayAchievements").style.display = "flex";
     document.getElementById("overlayAchievements").style.animation = "fadeIn 0.5s";
 }
+Game.closeAchievements = function() {
+    document.getElementById("overlayAchievements").style.display = "none";
+}
+
+
 Achievements.kiwiGoal10k = false;
 Achievements.kiwiGoal100k = false;
 Achievements.kiwiGoal1m = false;
@@ -357,8 +356,12 @@ Achievements.kiwiGoal1m = false;
 setInterval( function() {
     if (Game.kiwis >= 10000) {
         Achievements.kiwiGoal10k = true;
-        Game.KiwiAchievement = Game.kiwis += 2000;
-        document.createElement("");
+        Game.KiwiAchievement = Game.kiwis += 5000;
+        let AchievementUnlocked = document.createElement("button");
+        AchievementUnlocked.innerHTML = "You made 10k Kiwis! You earn 5000 more";
+        AchievementUnlocked.className = "AchievementDiv";
+        AchievementUnlocked.id = "";
+        AchievementUnlocked.name = "AchievementUnlocked";
     }
     if (Game.kiwis >= 100000) {
         Achievements.kiwiGoal100k = true;
@@ -367,6 +370,7 @@ setInterval( function() {
         Achievements.kiwiGoal1m = true;
     }
 });
+
 
 
 // reset kiwi function
@@ -442,7 +446,6 @@ setInterval(function(){
         document.getElementById('the-gamble').style.display = "inline block";
     }
 }, 1000);
-
 // before quitting
 window.onbeforeunload = () => {
     Game.saveMade = true;
