@@ -36,7 +36,7 @@ Game.pressCounterText = document.getElementById("pressCounterText");
 Game.extractorCounterText = document.getElementById("extractorCounterText");
 Game.makeKiwiButton = document.getElementById("makeKiwiButton");
 Game.kiwiPressButton = document.getElementById("kiwiPressButton");
-Game.gamblePrice = 100000;
+Game.gambleButtonPrice = 100000;
 Game.startDate = 0;
 Game.quitDate = 0;
 Game.goldenKiwiCounter = 0;
@@ -102,9 +102,9 @@ window.onload = () => {
     Game.extractorPrice = 15000;
   }
 
-  Game.gambleAvailable = Game.lds.get("gambleAvailable");
-  if (Game.gambleAvailable == undefined || isNaN(Game.gambleAvailable)) {
-    Game.gambleAvailable = 15000;
+  Game.gambleCheckIfUnlocked = Game.lds.get("gambleCheckIfUnlocked");
+  if (Game.gambleCheckIfUnlocked == undefined || isNaN(Game.gambleCheckIfUnlocked)) {
+    Game.gambleCheckIfUnlocked = false;
   }
 
   Game.goldenKiwiCounter = Game.lds.get("goldenKiwiCounter");
@@ -136,7 +136,7 @@ window.onload = () => {
     Game.updateKiwiCounter();
     Game.updatePressCounter();
   }
-  if (Game.gambleAvailable === false) {
+  if (Game.gambleCheckIfUnlocked === false) {
     document.getElementById("gambleKiwiButton").style.display = "none";
   } else {
     document.getElementById("buyGambleButton").style.display = "none";
@@ -150,7 +150,7 @@ window.onload = () => {
   if (Game.extractorCount === 0) {
     document.getElementById("the-extractor").style.display = "none";
   }
-  if (Game.gambleAvailable === false) {
+  if (Game.gambleCheckIfUnlocked === false) {
     document.getElementById("the-gamble").style.display = "none";
   }
 
@@ -201,7 +201,6 @@ Game.Rdn = Math.round(Math.random * 3);
 Game.pressRun = function () {
   if (Game.pressCount > 0) {
     if (Game.Rdn === 0) {
-      // create the button when buyPress clicked
       let press = document.createElement("button");
       press.innerHTML = "Press" + " " + Game.pressCount;
       press.className = "PressStyleNormie";
@@ -274,15 +273,15 @@ Game.buyExtractor = function () {
 };
 
 Game.buyGambleMachine = function () {
-  if (Game.kiwis - Game.gamblePrice >= 0) {
-    Game.kiwis -= Game.gamblePrice;
+  if (Game.kiwis - Game.gambleButtonPrice >= 0) {
+    Game.kiwis -= Game.gambleButtonPrice;
     console.log("gamble machine bought");
     Game.updateKiwiCounter();
-    Game.gambleAvailable = true;
+    Game.gambleCheckIfUnlocked = true;
     document.getElementById("buyGambleButton").style.display = "none";
     document.getElementById("gambleKiwiButton").style.display = "grid";
   } else {
-    let missingKiwis = Game.gamblePrice - Game.kiwis;
+    let missingKiwis = Game.gambleButtonPrice - Game.kiwis;
     alert(`You don't have enough kiwis (missing ${missingKiwis} kiwis)`);
   }
 };
@@ -402,19 +401,19 @@ Game.resetSave = function () {
   Game.pressCounterText.innerHTML = `${Game.pressCount} press`;
   Game.updateExtractorCounter();
   Game.updateMakeKiwiButton();
-  Game.gambleAvailable = false;
+  Game.gambleCheckIfUnlocked = false;
   document.getElementById("buyGambleButton").style.display = "grid";
   document.getElementById("gambleKiwiButton").style.display = "none";
   Game.kiwiPressButton.innerHTML = `buy press (${Game.pressPrice})`;
   $(".PressStyle").remove();
 };
 
-//check every second (will probably begin to be extremely laggy in the future sorry)
+//check every second (will probably begin to be extremely laggy in the future)
 setInterval(function () {
   //update kiwis every sec
   Game.updateKiwiCounter();
   // click upgrades unlock check
-  if (Game.kiwis > Game.gamblePrice - 1) {
+  if (Game.kiwis > Game.gambleButtonPrice - 1) {
     document.getElementById("buyGambleButton").style.border =
       "rgb(202, 52, 165) solid 5px";
     document.getElementById("buyGambleButton").style.color = "rgb(161, 26, 89)";
@@ -463,7 +462,7 @@ setInterval(function () {
   if (Game.extractorCount > 0) {
     document.getElementById("the-extractor").style.display = "inline block";
   }
-  if (Game.gambleAvailable === true) {
+  if (Game.gambleCheckIfUnlocked === true) {
     document.getElementById("the-gamble").style.display = "inline block";
   }
 }, 1000);
@@ -482,7 +481,7 @@ window.onbeforeunload = () => {
   Game.lds.set("extractorCount", Game.extractorCount);
   Game.lds.set("extractorMakeCount", Game.extractorMakeCount);
   Game.lds.set("extractorPrice", Game.extractorPrice);
-  Game.lds.set("gambleAvailable", Game.gambleAvailable);
+  Game.lds.set("gambleCheckIfUnlocked", Game.gambleCheckIfUnlocked);
   Game.lds.set("quitDate", Game.quitDate);
   Game.lds.set("goldenKiwiCounter", Game.goldenKiwiCounter);
 };
