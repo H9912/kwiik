@@ -26,7 +26,7 @@ Game.kiwis = 0;
 Game.defaultKiwiMakeCount = 1;
 Game.kiwiMakeCount = 1;
 Game.pressCount = 0;
-Game.pressPrice = 250;
+Game.pressPrice = 10;
 Game.extractorCount = 0;
 Game.extractorMakeCount = 5;
 Game.extractorPrice = 15000;
@@ -36,7 +36,7 @@ Game.pressCounterText = document.getElementById("pressCounterText");
 Game.extractorCounterText = document.getElementById("extractorCounterText");
 Game.makeKiwiButton = document.getElementById("makeKiwiButton");
 Game.kiwiPressButton = document.getElementById("kiwiPressButton");
-Game.gamblePrice = 60000;
+Game.gamblePrice = 100000;
 Game.startDate = 0;
 Game.quitDate = 0;
 Game.goldenKiwiCounter = 0;
@@ -84,7 +84,7 @@ window.onload = () => {
 
   Game.pressPrice = Game.lds.get("pressPrice");
   if (Game.pressPrice == undefined || isNaN(Game.pressPrice)) {
-    Game.pressPrice = 250;
+    Game.pressPrice = 10;
   }
 
   Game.extractorCount = Game.lds.get("extractorCount");
@@ -187,7 +187,7 @@ Game.buyPress = function () {
     Game.Rdn = Math.floor(Math.random() * 4);
     Game.pressRun();
     // calculate new pressPrice and flatten it
-    Game.pressPrice = Math.floor(Game.pressPrice * 1.2);
+    Game.pressPrice = Math.floor(Game.pressPrice * 1.9);
     document.getElementById(
       "kiwiPressButton"
     ).innerHTML = `buy press (${Game.pressPrice})`;
@@ -329,7 +329,7 @@ Game.goldenTrigger = function () {
         if (Game.i < 2) {
           goldenLoop();
         }
-      }, rand * 50000);
+      }, rand * 25000);
     }
     goldenLoop();
   }
@@ -392,7 +392,7 @@ Game.resetSave = function () {
   Game.saveMade = false;
   Game.kiwis = 0;
   Game.pressCount = 0;
-  Game.pressPrice = 250;
+  Game.pressPrice = 10;
   Game.kiwiMakeCount = 1;
   Game.extractorPrice = 15000;
   Game.extractorCount = 0;
