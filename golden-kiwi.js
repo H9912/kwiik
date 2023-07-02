@@ -1,4 +1,6 @@
 //Everything about golden kiwi
+Game.goldenKiwiCounter = 0;
+Game.i = 1;
 let goldenbtn = document.createElement("button");
 goldenbtn.name = "GOLDEN";
 goldenbtn.id = "goldenKiwi";
@@ -10,7 +12,7 @@ Game.goldenTrigger = function () {
             setTimeout(function () {
                 console.log("Golden kiwi summoned");
                 Game.i = 3;
-                Game.goldenKiwi();
+                Game.createGoldenKiwi();
                 if (Game.i < 2) {
                     goldenLoop();
                 }
@@ -20,7 +22,7 @@ Game.goldenTrigger = function () {
     }
 };
 
-Game.goldenKiwi = function () {
+Game.createGoldenKiwi = function () {
     //create the button, assign to the html document, set his properties
     goldenbtn.innerHTML =
         "<img src='https://cdn.discordapp.com/attachments/468526089153544212/1030787434264416306/unknown.png' alt='goldenKiwi' class='golden'/>";

@@ -1,13 +1,11 @@
 //Everything about presses
-
-
 Game.pressCount = 0;
 Game.pressPrice = 10;
 Game.pressCounterText = document.getElementById("pressCounterText");
-Game.kiwiPressButton = document.getElementById("kiwiPressButton");
+Game.buyPressButton = document.getElementById("buyPressButton");
 
 Game.updatePressBuyButton = function () {
-    document.getElementById("kiwiPressButton").innerHTML = `buy press (${Game.pressPrice})`;
+    document.getElementById("buyPressButton").innerHTML = `buy press (${Game.pressPrice})`;
 }
 
 // runs when you buy a press
@@ -25,7 +23,7 @@ Game.buyPress = function () {
         // calculate new pressPrice and flatten it
         Game.pressPrice = Math.floor(Game.pressPrice * 1.9);
         document.getElementById(
-            "kiwiPressButton"
+            "buyPressButton"
         ).innerHTML = `buy press (${Game.pressPrice})`;
     } else {
         let missingKiwis = Game.pressPrice - Game.kiwis;
@@ -35,13 +33,6 @@ Game.buyPress = function () {
 
 Game.pressRun = function () {
     if (Game.pressCount > 0) {
-        let press = document.createElement("button");
-        press.innerHTML = "Press" + " " + Game.pressCount;
-        press.className = "PressStyleNormie";
-        press.id = "press" + Game.pressCount;
-        press.name = "press" + Game.pressCount;
-        // add press to html doc
-        document.getElementById("pressDiv").appendChild(press);
         Game.kiwiMakeCount = Game.defaultKiwiMakeCount + Game.pressCount;
         document.getElementById("makeKiwiButton").innerHTML = `make kiwi (${Game.kiwiMakeCount})`;
     }

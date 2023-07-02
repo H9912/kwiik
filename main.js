@@ -29,8 +29,6 @@ Game.kiwiCounterText = document.getElementById("kiwiCounterText");
 Game.makeKiwiButton = document.getElementById("makeKiwiButton");
 Game.startDate = 0;
 Game.quitDate = 0;
-Game.goldenKiwiCounter = 0;
-Game.i = 1;
 
 // utility funcs
 Game.updateMakeKiwiButton = function () {
