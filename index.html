@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/468526089153544212/1028371460953210963/kklogo2.png">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/766335209229778968/1125200743058649128/Fichier_1.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script
     src="https://cdn.jsdelivr.net/gh/macmcmeans/localDataStorage@master/localDataStorage-3.0.0.min.js" 
@@ -20,9 +20,9 @@
 
     <div class="loader">
         <span class="loading-text">
-            Loading kwiik...
+            Loading  
         </span>
-        <img class="loading-img" src="https://cdn.discordapp.com/attachments/468526089153544212/1028371460953210963/kklogo2.png"/>
+        <img class="loading-img" src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png"/>
     </div>
     <div class="gamblewaiting" id="gamblewaiting">
         <span class="loading-text">
@@ -32,26 +32,35 @@
     <div class="menu">
         <button class="wiki" id="wiki" onclick="Game.openWiki()">Wiki</button>
         <button class="settings" id="settings" onclick="Game.openSettings()">Settings</button>
-        <button class="settings" id="achievement" onclick="Game.checkForAchievement()">Achievements</button>
+        <button class="achievements" id="achievements" onclick="Game.checkForAchievement()">Achievements</button>
     </div>
     <div class="kwiik">
         <div class="heading">
-            <img class="heading-img" src="https://cdn.discordapp.com/attachments/468526089153544212/1028371460953210963/kklogo2.png"/>
-            <h1>kwiik 0.4</h1>
+            <img class="logo" src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png"/>
         </div>
-        <div class="mainbuttons">
-            <button class="kiwibutton" id=makeKiwiButton onclick="Game.makeKiwi()">make kiwi (1)</button>
-            <button class="gambleButton" id=gambleKiwiButton onclick="Game.gambleKiwis()">GAMBLE</button>
-        </div>
-        <div class="counter" id="kiwiCounter">
+        <div class="kiwicounter" id="kiwiCounter">
             <h3 id="kiwiCounterText">{} kiwis</h3>
         </div>
+        <div class="mainbuttons">
+            <img id=makeKiwiButton onclick="Game.makeKiwi()" src="https://cdn.discordapp.com/attachments/997177797128769536/1125165506563936457/KIWI.png">
+            <button class="gambleButton" id=gambleKiwiButton onclick="Game.gambleKiwis()">GAMBLE</button>
+        </div>
         <div class="upgrades">
-            <button class="clickupgrades" id=buyPressButton onclick="Game.buyPress()">buy press (10)</button>
+            <button class="clickupgrades" id=buyRootButton onclick="Game.buyRoot()">buy root (10)</button>
+            <button class="clickupgrades" id=buyPressButton onclick="Game.buyPress()">buy press (500)</button>
             <button class="clickupgrades" id=buyExtractorButton onclick="Game.buyExtractor()">buy extractor (15000)</button>
             <button class="clickupgrades" id=buyGambleButton onclick="Game.buyGambleMachine()">buy gamble machine (100000)</button>
         </div>
         <div id="pressDiv"></div>
+    </div>
+    <div class="counter" id="rootCounter">
+        <h3 id="rootCounterText">{} roots</h3>
+    </div>
+    <div class="counter" id="pressCounter">
+        <h3 id="pressCounterText">{} presses</h3>
+    </div>
+    <div class="counter" id="extractorCounter">
+        <h3 id="extractorCounterText">{} extractors</h3>
     </div>
     <div class="overlayWiki" id="overlayWiki">
         <a class="closeWiki" onclick="Game.closeWiki()">CLOSE</a>
@@ -60,16 +69,20 @@
                 <h3>The Kiwi</h3>
                 <p>The tasty, beautiful, original kiwi</p>
             </div>
+            <div id="the-root">
+                <h3>Root</h3>
+                <p> Recolt +1 kiwi per root</p>
+            </div>
             <div id="the-press">
-                <h3>The Press</h3>
-                <p> To make even more kiwis! (+1 kiwi per click)</p>
+                <h3>Press</h3>
+                <p> Automatically recolt 1 kiwi per second</p>
             </div>
             <div id="the-extractor">
-                <h3>The Extractor</h3>
+                <h3>Extractor</h3>
                 <p>They produce +5 kiwis per extractor automatically, even when you're not here</p>
             </div>
             <div id="the-golden-kiwi">
-                <h3>The Golden Kiwi</h3>
+                <h3>Golden Kiwi</h3>
                 <p>A sneaky, rare, but incredibly rich fruit that gives you tons of kiwis when you catch it! (+500 per Press)</p>
             </div>
             <div id="the-gamble">
@@ -88,12 +101,6 @@
         </div>
         <button class="buttonreset" id=resetKiwisButton onclick="Game.resetSave()">reset save</button>
     </div>
-    <div class="counter" id="pressCounter">
-        <h3 id="pressCounterText">{} presses</h3>
-    </div>
-    <div class="counter" id="extractorCounter">
-        <h3 id="extractorCounterText">{} extractors</h3>
-    </div>
     <script src="main.js"></script>
     <script src="press.js"></script>
     <script src="extractor.js"></script>
@@ -103,10 +110,6 @@
     <script src="wiki.js"></script>
     <script src="achievements.js"></script>
     <script src="save.js"></script>
+    <script src="root.js"></script>
 </body>
-<footer>
-    <div class="footer">
-        <p>By Walitam & h912 - 2023</p>
-    </div>
-</footer>
 </html>

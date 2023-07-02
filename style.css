@@ -7,10 +7,15 @@
 }
 
 body {
-    background: url("https://cdn.discordapp.com/attachments/766335209229778968/1028297358657728642/kk2.png") fixed no-repeat;
+    background: url("https://cdn.discordapp.com/attachments/766335209229778968/1125199501938921502/BG.png") fixed no-repeat;
     background-size: 100% 100%;
     animation: fadeIn 1.5s;
+    font-family: Roboto Slab;
+    color: azure;
     /*overflow: hidden;*/
+}
+.logo {
+    width: 15%;
 }
 /*LOADING SCREEN*/
 .loader{
@@ -26,25 +31,36 @@ body {
     z-index: 2;
 }
 .loading-text {
-    font-family: "Roboto Slab";
     font-size: 3rem;
-    color: azure;
 }
 
 .loading-img {
     width: 10%;
+    margin-left: 25px;
 }
 #inner{display:table-cell;width:100%;height:100%;height:100vh;vertical-align:middle;}
 
-.mainbuttons {
+/*MAKEKIWIS*/
+#makeKiwiButton{
+    width: 10%;
+    margin: auto;
+    border:none;
+    transition: all 0.2s;
     display: flex;
-    align-items: flex-start;
-    margin-top: 1%;
+    margin-left: 7rem;
+    position: absolute;
 }
+#makeKiwiButton:hover{
+    width: 12%;
+    margin: auto;
+    margin-left: 7rem;
+    border:none;
+    animation-name: kiwi-button;
+    
+}
+
 /*HEADINGS*/
 .heading {
-    font-family: Roboto Slab;
-    color: rgb(255, 255, 255);
     display: flex;
     margin-left: 2%;
     margin-top: -4%;
@@ -56,16 +72,18 @@ body {
 }
 /*COUNTER TEXT*/
 .counter {
-    font-family: Roboto Slab;
-    color: rgb(255, 255, 255);
     font-size: 1.5em;
+    margin-left: 3%;
+    display: inline-flex;
+}
+.kiwicounter {
+    font-size: 1.5em;
+    margin-top: 1%;
     margin-left: 3%;
     display: inline-flex;
 }
 /*FOOTER AND RESET BUTTON*/
 .footer {
-    color: rgb(255, 255, 255);
-    font-family: Roboto Slab;
     display: flex;
     text-align: right;
     bottom: 1%;
@@ -74,7 +92,6 @@ body {
 
 }
 .buttonreset {
-    font-family: Roboto Slab;
     text-align: center;
     display: grid;
     font-size: 100%;
@@ -94,19 +111,6 @@ body {
     width: 12%;
 }
 
-.kiwibutton {
-    font-family: Roboto Slab;
-    text-align: center;
-    font-size: 100%;
-    padding: 3em;
-    display: flex;
-    border: rgb(43, 150, 87) solid 5px;
-    transition: 0.3s;
-    color:  rgb(43, 150, 87);
-    box-sizing: border-box;
-    animation: bounce 1s infinite alternate;
-    margin-left: 3%;
-}
 .button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -116,7 +120,9 @@ body {
 
 /*UPGRADES POSITION*/
 .upgrades {
+    font-family: Roboto Slab;
     margin-left: 3%;
+    margin-top: 12%;
     margin-bottom: 1%;
     grid-template-columns: auto auto auto;
     display: grid;
@@ -125,8 +131,8 @@ body {
     width: 0;
 }
 .upgrades > button {
-    width: 5%;
     font-family: Roboto Slab;
+    width: 5%;
     text-align: center;
     padding: 1.5em;
     font-size: 100%;
@@ -135,11 +141,9 @@ body {
     transition: 0.3s;
     color:  rgb(75, 75, 75);
     min-width: 150px;
+    border-radius: 7% !important;
 }
-.test {
-    width: 30%;
-    animation: bounce3 1s infinite alternate-reverse;
-}
+
 .clickupgrades:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -199,63 +203,6 @@ body {
 }
 /*PRESS*/
 .PressStyle {
-    font-family: Roboto Slab;
-    text-align: center;
-    font-size: 100%;
-    transition: 0.3s;
-    animation: fadeIn 5s;
-    padding: 1.3em;
-    position: relative;
-    margin-right: 1%;
-    margin-bottom: 1%;
-}
-.PressStyleNormie {
-    font-family: Roboto Slab;
-    text-align: center;
-    font-size: 100%;
-    transition: 0.3s;
-    animation: fadeIn 5s;
-    border: rgb(92, 92, 92) solid 5px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    color: rgb(27, 90, 105);
-    padding: 1.3em;
-    position: relative;
-    margin-right: 1%;
-    margin-bottom: 1%;
-}
-.PressStyleGnarly{
-    border: rgb(196, 151, 0) solid 5px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    color: rgb(196, 151, 0);
-    font-family: Roboto Slab;
-    text-align: center;
-    font-size: 100%;
-    transition: 0.3s;
-    animation: fadeIn 5s;
-    padding: 1.3em;
-    position: relative;
-    margin-right: 1%;
-    margin-bottom: 1%;
-}
-.PressStyleBeastly{
-    border: rgb(9, 140, 185) solid 5px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    color: rgb(9, 164, 178);
-    font-family: Roboto Slab;
-    text-align: center;
-    font-size: 100%;
-    transition: 0.3s;
-    animation: fadeIn 5s;
-    padding: 1.3em;
-    position: relative;
-    margin-right: 1%;
-    margin-bottom: 1%;
-}
-.PressStyleLazy{
-    border: rgb(10, 136, 17) solid 5px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    color: rgb(10, 140, 19);
-    font-family: Roboto Slab;
     text-align: center;
     font-size: 100%;
     transition: 0.3s;
@@ -308,7 +255,6 @@ body {
 }
 .overlaySettings {
     transition: 0.5s;
-    color: white;
     font-family: "Roboto Slab";
     border: none;
     display: none;

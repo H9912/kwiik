@@ -1,5 +1,5 @@
 // kwiik
-// by walitam & h912 - do anything you want, just credit us please
+// by walitam, h912 and Liberty - do anything you want, just credit us please
 
 /* versions:
 done 0.1 : technical test
@@ -14,7 +14,6 @@ $body = $("body");
 
 const Game= {};
 
-// define variables
 const formatter = Intl.NumberFormat("en", {
   notation: "compact",
   maximumSignificantDigits: 3,
@@ -40,12 +39,15 @@ Game.updateKiwiCounter = function () {
 Game.updatePressCounter = function () {
   Game.pressCounterText.innerHTML = `${Game.pressCount} presses`;
 };
+Game.updateRootCounter = function () {
+  Game.rootCounterText.innerHTML = `${Game.rootCount} roots`;
+};
 Game.updateExtractorCounter = function () {
   Game.extractorCounterText.innerHTML = `${Game.extractorCount} extractors`;
 };
 Game.reductDateToSeconds = function (d) {
   let td = d;
-  d = Math.floor(td / 1000);
+  d = Math.floor(td / 100);
   return d;
 };
 
@@ -73,6 +75,16 @@ window.onload = () => {
   Game.pressPrice = Game.lds.get("pressPrice");
   if (Game.pressPrice === undefined || isNaN(Game.pressPrice)) {
     Game.pressPrice = 10;
+  }
+
+  Game.rootPrice = Game.lds.get("rootPrice");
+  if (Game.rootPrice === undefined || isNaN(Game.rootPrice)) {
+    Game.rootPrice = 10;
+  }
+
+  Game.rootCount = Game.lds.get("rootPrice");
+  if (Game.rootCount === undefined || isNaN(Game.rootCount)) {
+    Game.rootCount = 0;
   }
 
   Game.extractorCount = Game.lds.get("extractorCount");
@@ -120,9 +132,14 @@ window.onload = () => {
   Game.updateExtractorCounter();
   Game.goldenTrigger();
 
+  Game.updateRootCounter();
+  Game.updateRootBuyButton();
+
   if (Game.saveMade === false) {
     Game.updateKiwiCounter();
+    Game.updateRootCounter();
     Game.updatePressCounter();
+    Game.updateExtractorCounter();
   }
   if (Game.gambleCheckIfUnlocked === false) {
     document.getElementById("gambleKiwiButton").style.display = "none";
@@ -162,45 +179,43 @@ setInterval(function () {
   Game.updateKiwiCounter();
   // click upgrades unlock check
   if (Game.kiwis > Game.gambleButtonPrice - 1) {
-    document.getElementById("buyGambleButton").style.border =
-      "rgb(202, 52, 165) solid 5px";
+    document.getElementById("buyGambleButton").style.border ="rgb(202, 52, 165) solid 5px";
     document.getElementById("buyGambleButton").style.color = "rgb(161, 26, 89)";
     document.getElementById("buyGambleButton").style.opacity = "100%";
   } else {
-    document.getElementById("buyGambleButton").style.border =
-      "rgb(80, 80, 80) solid 5px";
+    document.getElementById("buyGambleButton").style.border ="rgb(80, 80, 80) solid 5px";
     document.getElementById("buyGambleButton").style.color = "rgb(75, 75, 75)";
     document.getElementById("buyGambleButton").style.opacity = "0.5";
   }
+  //root
+  if (Game.kiwis > Game.rootPrice - 1) {
+    document.getElementById("buyRootButton").style.border ="rgb(0, 138, 185) solid 5px";
+    document.getElementById("buyRootButton").style.color = "rgb(43, 150, 87)";
+    document.getElementById("buyRootButton").style.opacity = "100%";
+  } else {
+    document.getElementById("buyRootButton").style.border ="rgb(80, 80, 80) solid 5px";
+    document.getElementById("buyRootButton").style.color = "rgb(75, 75, 75)";
+    document.getElementById("buyRootButton").style.opacity = "0.5";
+  }
   //press
   if (Game.kiwis > Game.pressPrice - 1) {
-    document.getElementById("kiwiPressButton").style.border =
-      "rgb(0, 138, 185) solid 5px";
-    document.getElementById("kiwiPressButton").style.color = "rgb(43, 150, 87)";
-    document.getElementById("kiwiPressButton").style.opacity = "100%";
+    document.getElementById("buyPressButton").style.border ="rgb(0, 138, 185) solid 5px";
+    document.getElementById("buyPressButton").style.color = "rgb(43, 150, 87)";
+    document.getElementById("buyPressButton").style.opacity = "100%";
   } else {
-    document.getElementById("kiwiPressButton").style.border =
-      "rgb(80, 80, 80) solid 5px";
-    document.getElementById("kiwiPressButton").style.color = "rgb(75, 75, 75)";
-    document.getElementById("kiwiPressButton").style.opacity = "0.5";
+    document.getElementById("buyPressButton").style.border ="rgb(80, 80, 80) solid 5px";
+    document.getElementById("buyPressButton").style.color = "rgb(75, 75, 75)";
+    document.getElementById("buyPressButton").style.opacity = "0.5";
   }
   //extractor
   if (Game.kiwis > Game.extractorPrice - 1) {
-    document.getElementById("buyExtractorButton").style.border =
-      "rgb(102, 0, 255) solid 5px";
-    document.getElementById("buyExtractorButton").style.color =
-      "rgb(153, 51, 255)";
+    document.getElementById("buyExtractorButton").style.border ="rgb(102, 0, 255) solid 5px";
+    document.getElementById("buyExtractorButton").style.color ="rgb(153, 51, 255)";
     document.getElementById("buyExtractorButton").style.opacity = "100%";
   } else {
-    document.getElementById("buyExtractorButton").style.border =
-      "rgb(80, 80, 80) solid 5px";
-    document.getElementById("buyExtractorButton").style.color =
-      "rgb(75, 75, 75)";
+    document.getElementById("buyExtractorButton").style.border ="rgb(80, 80, 80) solid 5px";
+    document.getElementById("buyExtractorButton").style.color ="rgb(75, 75, 75)";
     document.getElementById("buyExtractorButton").style.opacity = "0.5";
-  }
-  if (Game.extractorCount > 0) {
-    Game.kiwis = Game.kiwis + Game.extractorMakeCount * Game.extractorCount;
-    Game.kiwiCounterText.innerHTML = `${formatter.format(Game.kiwis)} kiwis`;
-  }
+  } 
 }, 1000);
 

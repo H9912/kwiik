@@ -9,7 +9,10 @@ window.onbeforeunload = () => {
     Game.lds.set("saveMade", Game.saveMade);
     Game.lds.set("kiwis", Game.kiwis);
     Game.lds.set("kiwiMakeCount", Game.kiwiMakeCount);
+    Game.lds.set("rootCount", Game.rootCount);
+    Game.lds.set("rootPrice", Game.rootPrice);
     Game.lds.set("pressCount", Game.pressCount);
+    Game.lds.set("pressMakeCount", Game.pressMakeCount);
     Game.lds.set("pressPrice", Game.pressPrice);
     Game.lds.set("extractorCount", Game.extractorCount);
     Game.lds.set("extractorMakeCount", Game.extractorMakeCount);

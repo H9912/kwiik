@@ -18,3 +18,10 @@ Game.buyExtractor = function () {
         alert(`You don't have enough kiwis (missing ${missingKiwis} kiwis)`);
     }
 };
+
+setInterval(function () {
+if (Game.extractorCount > 0) {
+    Game.kiwis = Game.kiwis + Game.extractorMakeCount * Game.extractorCount;
+    Game.kiwiCounterText.innerHTML = `${formatter.format(Game.kiwis)} kiwis`;
+  }
+}, 1000);
