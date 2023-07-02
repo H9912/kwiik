@@ -17,7 +17,7 @@ body {
 .logo {
     width: 15%;
 }
-/*LOADING SCREEN*/
+/*-------------------------------LOADING SCREEN-----------------------------------------*/
 .loader{
     display: flex;
     width:100%;
@@ -38,7 +38,27 @@ body {
     width: 10%;
     margin-left: 25px;
 }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 #inner{display:table-cell;width:100%;height:100%;height:100vh;vertical-align:middle;}
+
+/*-------------------------------------------------------------------------------------*/
 
 /*MAKEKIWIS*/
 #makeKiwiButton{
@@ -308,24 +328,6 @@ body {
 }
 .more-wiki {
     color: #0051ad;
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
 }
 .gamblewaiting {
     display: none;
