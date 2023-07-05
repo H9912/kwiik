@@ -2,6 +2,7 @@
 
 // before quitting
 window.onbeforeunload = () => {
+    Game.lds.clear();
     Game.saveMade = true;
     let d = Date.now();
     Game.quitDate = Game.reductDateToSeconds(d);
@@ -17,7 +18,5 @@ window.onbeforeunload = () => {
     Game.lds.set("extractorCount", Game.extractorCount);
     Game.lds.set("extractorMakeCount", Game.extractorMakeCount);
     Game.lds.set("extractorPrice", Game.extractorPrice);
-    Game.lds.set("gambleCheckIfUnlocked", Game.gambleCheckIfUnlocked);
     Game.lds.set("quitDate", Game.quitDate);
-    Game.lds.set("goldenKiwiCounter", Game.goldenKiwiCounter);
 };

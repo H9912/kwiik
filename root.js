@@ -1,12 +1,15 @@
 //Everything about presses
-Game.rootCount = 0;
+Game.rootCount = 1;
 Game.rootPrice = 10;
 Game.rootCounterText = document.getElementById("rootCounterText");
 Game.buyRootButton = document.getElementById("buyRootButton");
 
 Game.updateRootBuyButton = function () {
-    document.getElementById("buyRootButton").innerHTML = `buy root (${Game.rootPrice})`;
+    document.getElementById("buyRootButton").innerHTML = `<img id=Icons src="iconsSVG/roots.svg"> buy root (${formatter.format(Game.rootPrice)})`;
 }
+Game.updateRootCounter = function () {
+  Game.rootCounterText.innerHTML = `${Game.rootCount} roots`;
+};
 
 // runs when you buy a root
 Game.buyRoot = function () {
@@ -23,17 +26,16 @@ Game.buyRoot = function () {
         //
         Game.rootRun();
         // calculate new rootPrice and flatten it
-        Game.rootPrice = Math.floor(Game.rootPrice * 1.9);
-        document.getElementById("buyRootButton").innerHTML = `buy root (${Game.rootPrice})`;
+        Game.rootPrice = Math.floor(Game.rootPrice * 1.7);
+        Game.updateRootBuyButton();
     } else {
         let missingKiwis = Game.rootPrice - Game.kiwis;
-        alert(`You don't have enough kiwis (missing ${missingKiwis} kiwis)`);
+        alert(`You don't have enough kiwis (missing ${formatter.format(missingKiwis)} kiwis)`);
     }
 };
 
 Game.rootRun = function () {
     if (Game.rootCount > 0) {
-        Game.kiwiMakeCount = Game.defaultKiwiMakeCount + Game.rootCount;
-        document.getElementById("makeKiwiButton").innerHTML = `make kiwi (${Game.kiwiMakeCount})`;
+        Game.kiwiMakeCount = Game.kiwiMakeCount + 1;
     }
 };
