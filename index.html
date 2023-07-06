@@ -18,35 +18,34 @@
 <body>
     <div class="loader">
         <span class="loading-text">Loading</span>
-        <img class="loading-img"
-            src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png" />
-    </div>
-    <div class="title">
-        <img class="logo"
-            src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png" />
-        <div class="resetbutton" id="resetButton" onclick="Game.resetSave()">RESET SAVE</div>
-        <div class="resetbutton" id="resetButton" onclick="Game.openSettings()">SETTINGS</div>
+        <img class="loading-img" src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png" />
     </div>
     <div class="globalWin">
-        <div class="kiwiAndCount">
-            <div class="mainbuttons">
+        <div class="leftArea">
+            <div class="logodiv"> 
+                <img class="logo"src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png" />
+            </div>
+            <div class="bigKiwi">
                 <img id=makeKiwiButton onclick="Game.makeKiwi()"
                     src="https://cdn.discordapp.com/attachments/997177797128769536/1125165506563936457/KIWI.png">
             </div>
-            <!-- counter -->
             <div class="kiwicounter" id="kiwiCounter">
                 <p id="kiwiCounterText">0 kiwis</p>
                 <p id="kiwiMakeCountText">- kiwis per click</p>
                 <p id="kiwiAutoMakeCountText">- kiwis per second</p>
             </div>
         </div>
-        <div class="upgrades">
+        <div class="rightArea">
+            <div class="topBar">
+                <div class="resetbutton" id="resetButton" onclick="Game.resetSave()">RESET SAVE</div>
+                <div class="resetbutton" id="resetButton" onclick="Game.openSettings()">SETTINGS</div>
+            </div>
             <div class="shop">
-                <div class="clickupgrades" id=buyRootButton onclick="Game.buyRoot()"> <img id=Icons class="buyIcon"
+                <div class="upgrades" id=buyRootButton onclick="Game.buyRoot()"> <img id=Icons class="buyIcon"
                         src="iconsSVG/roots.svg">buy root (10)</div>
-                <div class="clickupgrades" id=buyPressButton onclick="Game.buyPress()"><img id=Icons class="buyIcon"
+                <div class="upgrades" id=buyPressButton onclick="Game.buyPress()"><img id=Icons class="buyIcon"
                         src="iconsSVG/press.svg">buy press (500)</div>
-                <div class="clickupgrades" id=buyExtractorButton onclick="Game.buyExtractor()"><img id=Icons
+                <div class="upgrades" id=buyExtractorButton onclick="Game.buyExtractor()"><img id=Icons
                         class="buyIcon" src="iconsSVG/extractor.svg">buy extractor (15k)</div>
             </div>
             <div class="globalcounters">
