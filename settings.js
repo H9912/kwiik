@@ -19,4 +19,7 @@ Game.resetSave = function () {
     Game.updateKiwiCounter();
     Game.updatePressCounter();
     Game.updateExtractorCounter();
+    Game.updateRootBuyButton();
+    Game.updatePressBuyButton();
+    Game.updateExtractorBuyButton();
 };

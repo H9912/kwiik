@@ -26,38 +26,34 @@
                 <img class="logo"src="https://cdn.discordapp.com/attachments/997177797128769536/1125166154059628655/Fichier_1.png" />
             </div>
             <div class="bigKiwi">
-                <img id=makeKiwiButton onclick="Game.makeKiwi()"
-                    src="https://cdn.discordapp.com/attachments/997177797128769536/1125165506563936457/KIWI.png">
-            </div>
+                <img id=makeKiwiButton onclick="Game.makeKiwi()" src="https://cdn.discordapp.com/attachments/997177797128769536/1125165506563936457/KIWI.png"></div>
             <div class="kiwicounter" id="kiwiCounter">
-                <p id="kiwiCounterText">0 kiwis</p>
-                <p id="kiwiMakeCountText">- kiwis per click</p>
-                <p id="kiwiAutoMakeCountText">- kiwis per second</p>
+                <div>
+                    <p id="kiwiCounterText">0 kiwis</p>
+                </div>
+                <div>
+                    <p id="kiwiMakeCountText">- kiwis per click</p>
+                    <p id="kiwiAutoMakeCountText">- kiwis per second</p>
+                </div>
             </div>
         </div>
         <div class="rightArea">
             <div class="topBar">
-                <div class="resetbutton" id="resetButton" onclick="Game.resetSave()">RESET SAVE</div>
+                <div class="resetbutton" id="resetButton" onclick="Game.openAchievements()">ACHIEVEMENTS</div>
                 <div class="resetbutton" id="resetButton" onclick="Game.openSettings()">SETTINGS</div>
+                <div class="resetbutton" id="resetButton" onclick="Game.openWiki()">WIKI</div>
+                <div class="resetbutton" id="resetButton" onclick="Game.openChangelog()">WHAT'S NEW ?</div>
+                <div class="resetbutton" id="resetButton" onclick="Game.resetSave()">reset</div>
             </div>
             <div class="shop">
-                <div class="upgrades" id=buyRootButton onclick="Game.buyRoot()"> <img id=Icons class="buyIcon"
-                        src="iconsSVG/roots.svg">buy root (10)</div>
-                <div class="upgrades" id=buyPressButton onclick="Game.buyPress()"><img id=Icons class="buyIcon"
-                        src="iconsSVG/press.svg">buy press (500)</div>
-                <div class="upgrades" id=buyExtractorButton onclick="Game.buyExtractor()"><img id=Icons
-                        class="buyIcon" src="iconsSVG/extractor.svg">buy extractor (15k)</div>
+                <div class="upgrades" id=buyRootButton onclick="Game.buyRoot()"> <img id=Icons class="buyIcon"src="iconsSVG/roots.svg">buy root (10)</div>
+                <div class="upgrades" id=buyPressButton onclick="Game.buyPress()"><img id=Icons class="buyIcon"src="iconsSVG/press.svg">buy press (500)</div>
+                <div class="upgrades" id=buyExtractorButton onclick="Game.buyExtractor()"><img id=Icons class="buyIcon" src="iconsSVG/extractor.svg">buy extractor (15k)</div>
             </div>
             <div class="globalcounters">
-                <div class="counter" id="rootCounter">
-                    <p id="rootCounterText">1 roots</p>
-                </div>
-                <div class="counter" id="pressCounter">
-                    <p id="pressCounterText">0 presses</p>
-                </div>
-                <div class="counter" id="extractorCounter">
-                    <p id="extractorCounterText">0 extractors</p>
-                </div>
+                <div class="counter" id="rootCounter"><p id="rootCounterText">1 roots</p></div>
+                <div class="counter" id="pressCounter"><p id="pressCounterText">0 presses</p></div>
+                <div class="counter" id="extractorCounter"><p id="extractorCounterText">0 extractors</p></div>
             </div>
         </div>
     </div>

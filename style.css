@@ -61,7 +61,7 @@ body {
 .leftArea {
     display: grid;
     position: absolute;
-    width: 30%;
+    width: 25%;
     height: 100%;
 }
 .logodiv {
@@ -73,29 +73,28 @@ body {
 }
 .kiwicounter{
     font-size: 1.5em;
-    display: flex;
+    display: grid;
     margin-top: 10%;
     position: absolute;
     top: 50vh;
+    left: 130px;
 }
-.kiwiStats {
-    display: flex;
-    position: absolute;
-    top: 10vh;
+#kiwiCounterText {
+    font-size: 1.5em;
+    font-weight: 600;
 }
-#kiwiCounterText, #kiwiMakeCountText, #kiwiAutoMakeCountText{
-    margin: auto 15px;
-    width: 150px;
+#kiwiMakeCountText, #kiwiAutoMakeCountText{
+    width: 200px;
 }
 .bigKiwi {
     margin: auto;
     display: flex;
     position: absolute;
     top: 200px;
-    left: 130px;
+    left: 100px;
 }
 #makeKiwiButton{
-    width: 80%;
+    width: 100%;
     transition: transform 0.5s ease;
     transition: all 0.5s;
     animation: kiwi infinite linear 30s ;
@@ -118,21 +117,21 @@ box-shadow: 8px 5px 15px -7px rgba(0, 165, 40, 1);
     background: url("https://cdn.discordapp.com/attachments/766335209229778968/1125944988505747497/kwiik_board_borders.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 90% ;
+    background-size: 100% ;
     position: absolute;
     right: 10px;
     height: 100%;
-    width: 70%;
+    width: 75%;
 }
 .shop{
     top: 250px;
     display: flex;
     position: absolute;
     right: 10px;
-    left: 250px;
+    left: 80px;
 }
 .upgrades{
-    padding: 0.3em;
+    padding: 1em;
     height: 100px;
     width: 20%;
     border: none !important;
@@ -151,31 +150,30 @@ box-shadow: 8px 5px 15px -7px rgba(0, 165, 40, 1);
 }
 .globalcounters {
     display: flex;
+    height: 100%;
 }
 .counter{
     display: flex;
-    background-color: rgb(100, 63, 18);
-    justify-content: center;
-    align-self: center;
-    height: 100px;
-    margin: 5px;
+    background-color: rgb(138, 67, 67);
     border-radius: 5px;
-    width: 100px;
-}
-#rootCounterText, #pressCounterText, #extractorCounterText{
-    align-self: center;
+    width: 33%;
+    margin: auto 5%;
 }
 .topBar {
-    width: 10%;
-    height: 10vh;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
     display: flex;
 }
 .resetbutton {
-    padding: 2em;
+    width: 20%;
+    margin: auto 3%;
+    padding: 1.4em;
+    font-size: 1.1em;
     border-radius: 10px;
     cursor: pointer;
     margin-right: 2%;
-    background-color: rgb(75, 75, 75);
+    background-color: #3D426B;
 }
 .resetbutton:hover{
     transform: scale(1.05);
@@ -184,5 +182,4 @@ box-shadow: 8px 5px 15px -7px rgba(0, 165, 40, 1);
     width:30%;
     overflow:hidden;
     padding-right: 20px;
-    box-shadow: rgb(7, 7, 7);
 }
