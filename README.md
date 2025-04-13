@@ -1,15 +1,5 @@
-# Kwiik : Cookie Clicker but bad
-its been so long but i just felt like fetching the repo and starting work on it again
-
+# Kwiik
 kwiik is all about kiwis and making as much as you can 🥝
-
-go go go no time to lose, lets make corentin proud 💪
-
-- [x] fetch repo
-- [ ] start working
-- [ ] renew comments in the whole code
-- [ ] try to figure out how this shit works
-- [ ] remake some systems while learning new js
 
 useful info for this project :
 
